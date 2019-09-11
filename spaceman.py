@@ -46,10 +46,15 @@ def is_word_guessed(secret_word, letters_guessed):
 
     reveal = [char for char in secret_word if char in letters_guessed]
 
-    if len(reveal) == len(secret_word):
-        return True
-    else:
-        return False
+    # credit to Anika Morris for snippet
+# https://github.com/anikamorris/spaceman/blob/master/spaceman.py
+    for i in range(len(secret_word)):
+        if not (secret_word[i] in letters_guessed):
+            print("Play again!")
+            return False
+    print("You have won The Game")
+    return True
+    
 
 def get_guessed_word(secret_word, letters_guessed):
     '''
